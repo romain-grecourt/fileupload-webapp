@@ -9,6 +9,8 @@ pipeline {
   stages {
     stage('Init') {
       steps {
+        a = checkout scm
+        print a
         sh """
           ls -la
           pwd
