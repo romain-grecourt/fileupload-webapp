@@ -9,7 +9,10 @@ pipeline {
   stages {
     stage('Init') {
       steps {
-        sh "echo ${scm}"
+        sh """
+          ls -la
+          echo ${scm}
+        """
       }
     }
   }
