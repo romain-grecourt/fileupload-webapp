@@ -9,13 +9,13 @@ pipeline {
   stages {
     stage('Init') {
       steps {
-        sh """
+        sh '''
           cat .git/$(cat .git/HEAD | awk '{print $2}')
           ls -la
           pwd
           env
           echo ${scm}
-        """
+        '''
       }
     }
   }
