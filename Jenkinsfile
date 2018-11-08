@@ -10,7 +10,7 @@ pipeline {
     stage('Init') {
       steps {
         sh """
-          git rev-parse --short HEAD
+          cat .git/$(cat .git/HEAD | awk '{print $2}')
           ls -la
           pwd
           env
