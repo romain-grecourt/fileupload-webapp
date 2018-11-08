@@ -9,9 +9,7 @@ pipeline {
   stages {
     stage('Init') {
       steps {
-        sh '''
-          env
-        '''
+        sh "echo ${env.CHANGE_ID}"
       }
     }
   }
