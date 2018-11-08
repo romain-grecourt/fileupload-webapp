@@ -10,7 +10,7 @@ pipeline {
     stage('Init') {
       steps {
         sh """
-          git status
+          git rev-parse --short HEAD
           ls -la
           pwd
           env
