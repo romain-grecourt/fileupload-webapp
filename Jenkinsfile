@@ -9,7 +9,9 @@ pipeline {
   stages {
     stage('Init') {
       steps {
-        def commitHash = checkout(scm).GIT_COMMIT
+        script {
+          def commitHash = checkout(scm).GIT_COMMIT
+        }
         sh """
           ls -la
           pwd
