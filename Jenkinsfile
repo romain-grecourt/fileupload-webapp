@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Init') {
       steps {
-        sh "echo ${env.CHANGE_ID}"
+        sh "echo ${scm}"
       }
     }
   }
