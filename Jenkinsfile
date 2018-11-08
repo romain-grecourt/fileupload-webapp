@@ -11,6 +11,7 @@ pipeline {
       steps {
         script {
           def commitHash = checkout(scm).GIT_COMMIT
+          println "GIT_COMMIT=${commitHash}"
         }
         sh """
           ls -la
