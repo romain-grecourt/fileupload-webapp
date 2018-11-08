@@ -11,6 +11,8 @@ pipeline {
       steps {
         sh """
           ls -la
+          pwd
+          env
           echo ${scm}
         """
       }
