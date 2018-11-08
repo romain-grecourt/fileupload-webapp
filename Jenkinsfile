@@ -1,8 +1,8 @@
 pipeline {
   agent any
-  options {
+  //options {
     // skipDefaultCheckout()
-  }
+  //}
   environment {
     FOO = 'BAR'
   }
