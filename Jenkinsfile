@@ -16,6 +16,28 @@ pipeline {
   environment {
     FOO = 'BAR'
   }
+  triggers {
+      githubPullRequest {
+          //admin('user_1')
+          //admins(['user_2', 'user_3'])
+          //userWhitelist('you@you.com')
+          //userWhitelist(['me@me.com', 'they@they.com'])
+          //orgWhitelist('my_github_org')
+          //orgWhitelist(['your_github_org', 'another_org'])
+          //cron('H/5 * * * *')
+          triggerPhrase('special trigger phrase')
+          onlyTriggerPhrase()
+          //useGitHubHooks()
+          //permitAll()
+          //autoCloseFailedPullRequests()
+          //displayBuildErrorsOnDownstreamBuilds()
+          //whiteListTargetBranches(['master','test', 'test2'])
+          //blackListTargetBranches(['master','test', 'test2'])
+          //whiteListLabels(['foo', 'bar'])
+          //blackListLabels(['baz'])
+          //allowMembersOfWhitelistedOrgsAsAdmin()
+      }//
+  }
   stages {
     stage('Init') {
       // XXX assuming alpine
