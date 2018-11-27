@@ -17,7 +17,7 @@ pipeline {
     FOO = 'BAR'
   }
   triggers {
-      githubPullRequest {
+      //githubPullRequest {
           //admin('user_1')
           //admins(['user_2', 'user_3'])
           //userWhitelist('you@you.com')
@@ -36,7 +36,8 @@ pipeline {
           //whiteListLabels(['foo', 'bar'])
           //blackListLabels(['baz'])
           //allowMembersOfWhitelistedOrgsAsAdmin()
-      }//
+      //}
+      issueCommentTrigger('.*test this please.*')
   }
   stages {
     stage('Init') {
