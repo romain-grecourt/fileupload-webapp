@@ -4,7 +4,7 @@ pipeline {
     stage('Init') {
       steps {
         sh '''
-          echo 'blue'
+          echo 'red'
         '''
       }
     }
