@@ -16,9 +16,6 @@ pipeline {
   environment {
     FOO = 'BAR'
   }
-  triggers {
-      issueCommentTrigger('.*test this please.*')
-  }
   stages {
     stage('Init') {
       // XXX assuming alpine
