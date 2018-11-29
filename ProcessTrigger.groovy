@@ -4,9 +4,19 @@ node {
      if(causes.size() > 0
         && causes[0].getClass().getName() == "org.jenkinsci.plugins.ghprb.GhprbCause"){
         def commentBody = currentBuild.rawBuild.getCauses()[0].getCommentBody()
-        println "triggered by comment: " + commentBody
+
+        // this is illustrative.
+        // the ghprb plugin can be configured with a loose regexp
+        // trigger different job based on the comment content
+        if(commentBody.contains("tests")){
+            build job: "fileupload-webapp/PR-${ghprbPullId}"
+        } else {
+            // fail here if the comment content is supported
+            error("Unsupported comment message")
+        }
      } else {
-        println "not triggered by comment"
+        // only process comment based trigger
+        error("Unsupported trigger")
      }
    }
 }
