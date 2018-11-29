@@ -9,8 +9,7 @@ node {
         // the ghprb plugin can be configured with a loose regexp
         // trigger different job based on the comment content
         if(commentBody.contains("tests")){
-            //println "triggering fileupload-webapp/PR-${ghprbPullId}"
-            build job: "fileupload-webapp/PR-${ghprbPullId}"
+            trigger_pipeline("fileupload-webapp", env.ghprbPullId)
         } else {
             // fail here if the comment content is supported
             error("Unsupported comment message")
@@ -20,4 +19,9 @@ node {
         error("Unsupported trigger")
      }
    }
+}
+
+@NonCPS
+def trigger_pipeline(name, prId) {
+    build job: "${name}/PR-${prId}"
 }
